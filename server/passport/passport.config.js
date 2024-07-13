@@ -1,7 +1,7 @@
 const passport = require("passport");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
-const userModel = require("../models/user.model");
+const { userModel } = require("../models/user.model");
 const { GraphQLLocalStrategy } = require("graphql-passport");
 
 exports.configurePassport = async () => {
@@ -14,10 +14,10 @@ exports.configurePassport = async () => {
   passport.deserializeUser(async (id, done) => {
     try {
       const user = await userModel.findById(id);
-      done(null, user);
+      return done(null, user);
     } catch (err) {
       console.error("Error while de-serializing the user", err);
-      done(err, null);
+      return done(err, null);
     }
   });
 
@@ -25,10 +25,10 @@ exports.configurePassport = async () => {
   passport.use(
     new GraphQLLocalStrategy(async (username, password, done) => {
       try {
-        const user = userModel.findOne({
+        const user = await userModel.findOne({
           username: username,
-          password: password,
         });
+
         if (!user) {
           console.log("Unsuccessful login");
           return done(null, false, { message: "Invalid credentials" });

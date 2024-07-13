@@ -1,6 +1,6 @@
 exports.transactionTypeDef = `#graphql
     type Transaction {
-        id: ID!
+        _id: ID!
         userId: ID!
         description: String!
         category: String!
