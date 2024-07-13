@@ -1,0 +1,23 @@
+{
+  "name": "FinTrack-Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "locally": "nodemon index.js"
+  },
+  "author": "Sandipan Chakraborty",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@graphql-tools/merge": "^9.0.4",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
+    "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
