@@ -27,12 +27,6 @@ Finance Tracker is a full-stack web application designed to help users track and
 
 ## Installation
 
-Use the package manager [npm](https://docs.npmjs.com/about-npm) to install foobar.
-
-```bash
-npm install
-```
-
 Clone the Repository
 
 ```bash
